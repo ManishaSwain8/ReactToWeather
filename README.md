@@ -1,70 +1,162 @@
-# Getting Started with Create React App
+<a href="#"><img src="https://pbs.twimg.com/card_img/1706660851640635392/AI7tW52K?format=jpg&name=4096x4096"/></a>
+<p align="center">  
+  <img alt="OS Code" src="https://user-images.githubusercontent.com/77539004/226191234-269ac220-e035-464f-ac00-9e65bbd80a78.png#gh-light-mode-only" height="250"/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+</p>
 
-## Available Scripts
+<h1 align="center" font-size="10">Welcome all to open source 🚀</h1>
+<p align="center">
+<img src="https://forthebadge.com/images/badges/built-with-love.svg" />
+<img src="https://forthebadge.com/images/badges/uses-brains.svg" />
+<img src="https://forthebadge.com/images/badges/powered-by-responsibility.svg" />
+ <br>
+ <img src="https://img.shields.io/github/repo-size/ManishaSwain8/ReactToWeather?style=for-the-badge" />
+   <img src="https://img.shields.io/github/issues/ManishaSwain8/ReactToWeather?style=for-the-badge" />
+   <img src="https://img.shields.io/github/issues-closed-raw/ManishaSwain8/ReactToWeather?style=for-the-badge" />
+    <img src="https://img.shields.io/github/license/ManishaSwain8/ReactToWeather?style=for-the-badge" />
 
-In the project directory, you can run:
+   <img src="https://img.shields.io/github/issues-pr/ManishaSwain8/ReactToWeather?style=for-the-badge" />
+    <img src="https://img.shields.io/github/contributors/ManishaSwain8/ReactToWeather?style=for-the-badge" />
+    <img src="https://img.shields.io/github/stars/ManishaSwain8/ReactToWeather?style=for-the-badge" />
 
-### `npm start`
+   <img src="https://img.shields.io/github/issues-pr-closed-raw/ManishaSwain8/ReactToWeather?style=for-the-badge" />
+   <img src="https://img.shields.io/github/forks/ManishaSwain8/ReactToWeatherstyle=for-the-badge" />
+  <img src="https://img.shields.io/github/last-commit/ManishaSwain8/ReactToWeather?style=for-the-badge" />
+ </p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<div align="center"><h1>🙌 About ReactToWeather</h1></div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-This is a beginner friendly project .
+- One can get weather using city name.
+- Temprature toggle available(toggle and convert temp into Fahrenheit,Kelvin,Celsius).
+- Get info about wind speed,humidity,etc.
+- Currently looking forward for new features.
 
-### `npm test`
+<h3>*** Lets make it unique ***</h3>  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<div align="center"><h1>💈 Want to Contribute?</h1></div>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+We welcome contributions through pull requests (PRs). To submit a PR, please follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Fork the Project
+2. Clone your forked repository
 
-### `npm run eject`
+```sh
+git clone https://github.com/ManishaSwain8/ReactToWeather.git
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Run the following command to change the working directory
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+cd react-to-weather
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Run the following command to install all the dependencies
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```sh
+npm install
+```
 
-## Learn More
+or
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+npm i
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. Now go ahead and create a new branch and move to the branch
 
-### Code Splitting
+```sh
+git checkout -b <branch-name>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+6. After you have added your changes, follow the following command chain
+   Check the changed files
 
-### Analyzing the Bundle Size
+```sh
+git status -s
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Add all the files to the staging area
 
-### Making a Progressive Web App
+```sh
+git add .
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+5. Commit your changes (add decent message )
 
-### Advanced Configuration
+```sh
+git commit -m "<EXPLAIN-YOUR_CHANGES>"
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+6. Push your changes
 
-### Deployment
+```sh
+git push origin <branch-name>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+7. Open a Pull Request
 
-### `npm run build` fails to minify
+- Make a pull request! (compare your branch with the owner main branch)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ <h3>*** Banzai banzai, yatta ne !! ***</h3> 
+
+ <div align="center"><h1>INFO ABOUT API?</h1></div>
+
+ <img src="https://ds-blobs-4.cdn.devapps.ru/23868180.png"/>
+Use the api from OpenWeatherMap (Current Weather Data package) 
+
+OpenWeatherMap- https://openweathermap.org/current
+ 
+
+<div align="center"><h1>🧾 Prerequisites</h1></div>
+
+Before starting out, you'll need to install the following on your computer.
+
+<div style="text-align: center;">
+  <a href="https://nodejs.org/en/download/">
+    <img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white" alt="NodeJS" />
+  </a>
+  
+  <a href="https://www.npmjs.com/">
+    <img src="https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white" alt="NPM" />
+  </a>
+</div>
+
+<div align="center"><h1>⚡ Tech Stack Used</h1></div>
+
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Framer](https://img.shields.io/badge/Framer-black?style=for-the-badge&logo=framer&logoColor=blue)
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+
+
+<br>
+<div align="center"><h1>👀 Preview </h1></div>
+
+![Screenshot (187)](https://github.com/ManishaSwain8/WeatherWebApp/assets/96622693/52dab97a-f58f-491d-bafc-e540d0090c78)
+
+<div align="center"><h1>📜 License</h1></div>
+
+This Community is <a href="https://github.com/ManishaSwain8/ReactToWeather/blob/master/LICENSE">Licensed</a> under MIT license.
+<div align="center"><h1>🧧 Code of Conduct</h1></div>
+
+Check out <a href="https://github.com/ManishaSwain8/ReactToWeather/blob/master/CONTRIBUTING.md">Code of Conduct</a> to know inclusive environment that respects all contributions.
+
+We value an inclusive environment that respects all contributions. To ensure a positive experience for everyone, please review our Code of Conduct.
+
+
+
+
+<h3 align="center"> If you learnt something do give a ⭐ to this repo !!
+<div align="center"><h1>❤️ Thanks to all the contributors</h1></div>
+
+<a href="https://github.com/ManishaSwain8/ReactToWeather/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ManishaSwain8/ReactToWeather" />
+</a>
+
+---

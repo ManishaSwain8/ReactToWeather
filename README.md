@@ -28,7 +28,7 @@
 
 -This is a beginner friendly project .
 - One can get weather using city name.
-- Temprature toggle available(toggle and convert temp into Fahrenheit,Kelvin,Celsius).
+- Temperature toggle available(toggle and convert temp into Fahrenheit,Kelvin,Celsius).
 - Get info about wind speed,humidity,etc.
 - Currently looking forward for new features.
 
@@ -103,7 +103,7 @@ git push origin <branch-name>
 
  <h3>*** Banzai banzai, yatta ne !! ***</h3> 
 
- <div align="center"><h1>INFO ABOUT API</h1></div>
+ <div align="center"><h1>💫 Info about API </h1></div>
 
  <img src="https://ds-blobs-4.cdn.devapps.ru/23868180.png"/>
 Use the api from OpenWeatherMap (Current Weather Data package) 
@@ -150,7 +150,7 @@ Check out <a href="https://github.com/ManishaSwain8/ReactToWeather/blob/master/C
 We value an inclusive environment that respects all contributions. To ensure a positive experience for everyone, please review our Code of Conduct.
 
 
-
+---
 
 <h3 align="center"> If you learnt something do give a ⭐ to this repo !!
 <div align="center"><h1>❤️ Thanks to all the contributors</h1></div>

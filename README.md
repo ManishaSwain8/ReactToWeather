@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/github/stars/ManishaSwain8/ReactToWeather?style=for-the-badge" />
 
    <img src="https://img.shields.io/github/issues-pr-closed-raw/ManishaSwain8/ReactToWeather?style=for-the-badge" />
-   <img src="https://img.shields.io/github/forks/ManishaSwain8/ReactToWeatherstyle=for-the-badge" />
+   <img src="https://img.shields.io/github/forks/ManishaSwain8/ReactToWeather?style=for-the-badge" />
   <img src="https://img.shields.io/github/last-commit/ManishaSwain8/ReactToWeather?style=for-the-badge" />
  </p>
 

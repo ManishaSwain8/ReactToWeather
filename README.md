@@ -37,7 +37,10 @@
 
 <div align="center"><h1>💈 Want to Contribute?</h1></div>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.</br>
+Please checkout  https://github.com/ManishaSwain8/ReactToWeather/blob/master/CONTRIBUTING.md
 
 We welcome contributions through pull requests (PRs). To submit a PR, please follow these steps:
 

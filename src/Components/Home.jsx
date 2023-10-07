@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import "../index.css";
 import axios from "axios";
 import { WiHumidity } from "react-icons/wi";
@@ -8,11 +7,16 @@ import { FiWind } from "react-icons/fi";
 import { CiLocationOn } from "react-icons/ci";
 import { GiMountains } from "react-icons/gi";
 import { Center, Box, SegmentedControl } from "@mantine/core";
+import Loader from "react-js-loader"; // Import the  Loader component
+
 export default function Home() {
-  const [weather, setWeather] = useState("");
+  const [weather, setWeather] = useState(null);
   const [city, setCity] = useState("");
-  const apiKey = "Your api key"; //api removed for security reasons(find api key info from readme.md )
+  const apiKey = "Your API key"; // API key (removed for security reasons, find API key info in readme.md)
   const [units, setUnits] = useState("metric");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false); // State to track loading status
+
 
   const renderTemperature = (value) => {
     if (units === "metric") {
@@ -27,11 +31,20 @@ export default function Home() {
   const apiCall = async (e) => {
     e.preventDefault();
     const loc = e.target.elements.loc.value;
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${apiKey}&units=${units}`; //API url from OpenWeatherMap
+    if (!loc) {
+      setError("Please enter a city name.");
+      return
+    }
+
+    setLoading(true); // Set loading to true when making the API call
+
+
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${apiKey}&units=${units}`;
+
     try {
       const res = await axios.get(url);
       setWeather({
-        descp: res.data.weather[0].description, //fetching data from API
+        descp: res.data.weather[0].description,
         temp: res.data.main.temp,
         city: res.data.name,
         humidity: res.data.main.humidity,
@@ -39,15 +52,20 @@ export default function Home() {
         feel: res.data.main.feels_like,
       });
       setCity(res.data.name);
+      setError(null);
     } catch (error) {
       if (error.response && error.response.status === 404) {
-        //Error handeling done using try and catch block .
-        alert("Please enter valid city name.");
+        setError("City not found, please check the city name and try again.");
       } else {
-        console.error("Error occured while fetching API data.");
+        setError("An error occurred while fetching API data.");
       }
+      setWeather(null);
+    } finally {
+      setLoading(false); // Set loading to false when API call is completed
     }
+
   };
+
   const Weather = () => {
     return (
       <div className="container">
@@ -144,8 +162,16 @@ export default function Home() {
             Get Weather
           </button>
         </form>
-
-        {weather && <Weather />}
+        {error && <p className="text-red-500">{error}</p>}
+        {loading ? (
+          // Display the loader while loading is true
+          <div className="loader-container">
+            <Loader type="bubble-top" bgColor={"#FFFFFF"} title={"Loading"} color={'#FFFFFF'} size={100} />
+          </div>
+        ) : (
+          // Display the Weather component when loading is false
+          weather && <Weather />
+        )}
       </div>
     </div>
   );

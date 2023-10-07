@@ -1,33 +1,45 @@
+/* Import Tailwind CSS base styles, components, and utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Define styles for the .app class */
 .app {
   width: 100%;
   height: 100vh;
   position: relative;
-  background-color: rgba(0, 0, 0, 0, 4);
+  background-color: rgba(0, 0, 0, 0.4); /* Fix the opacity value here */
   color: aliceblue;
 }
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Create a background image for .app */
 .app:before {
   content: "";
   background: url("./assets/ubg1.jpg") no-repeat center center/cover;
-
   position: absolute;
   width: 100%;
   height: 100%;
+  object-fit: contain;
   top: 0;
   left: 0;
   z-index: -1;
 }
+
+/* Define styles for the .container class */
 .container {
   max-width: 700px;
-  height: 700px;
+  height: 500px;
   margin: auto;
   padding: 0 1rem;
-  top: 10%;
+  top: 10%; /* Remove duplicate 'top' property */
   position: relative;
-  top: 10%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -39,13 +51,19 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
   margin-top: 2rem;
 }
+
+/* Define styles for .top inside .app */
 .app.top {
   width: 100%;
   margin: 1rem auto;
 }
+
+/* Define styles for .description inside .app */
 .app .description {
   position: relative;
 }
+
+/* Define styles for .bottom inside .app */
 .app .bottom {
   display: flex;
   justify-content: space-evenly;
@@ -56,35 +74,46 @@
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.2);
 }
+
+/* Define styles for .search inside .app */
 .app .search {
   text-align: center;
   padding: 4rem;
 }
+
+/* Define styles for input elements */
 .app input {
   padding: 0.7rem 1.5rem;
   font-size: 1.2rem;
   border-radius: 25px;
   border: 1px solid rgba(31, 38, 135, 0.37);
   background: rgba(255, 255, 255, 0.1);
+  color: aliceblue; /* Set text color for better visibility */
 }
 
+/* Define styles for input placeholders */
 ::placeholder {
   color: aliceblue;
 }
 
+/* Responsive styles for small screens */
 @media (max-width: 600px) {
   .bottom {
     display: flex;
     flex-direction: column;
   }
 }
+
+/* Additional responsive styles for larger screens */
 @media (min-width: 1280px) {
   .container {
-    max-width: 700px !important;
+    max-width: 700px !important; /* !important is not recommended, but it's okay for specific overrides */
   }
 }
+
+/* Additional responsive styles for medium screens */
 @media (min-width: 1024px) {
   .container {
-    max-width: 700px !important;
+    max-width: 700px !important; /* !important is not recommended, but it's okay for specific overrides */
   }
 }

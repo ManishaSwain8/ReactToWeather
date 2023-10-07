@@ -9,7 +9,7 @@ export default function Home() {
   const [units, setUnits] = useState("metric");
   
   //api removed for security reasons(find api key info from readme.md )
-  const apiKey = "368b2813d1ec3f76dc666bb7aefb9143"; 
+  const apiKey = "Your API Key"; 
 
   // Used to display the temperature details in a readable manner
   const renderTemperature = (value) => {

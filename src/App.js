@@ -1,14 +1,14 @@
-import { MantineProvider, createTheme } from "@mantine/core";
-import "./App.css";
-import axios from "axios";
+import React from "react";
+import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import Home from "./Components/Home";
+
 function App() {
   return (
-    <div className="">
+    <div className="app">
       <MantineProvider>
         <Home />
-      </MantineProvider>{" "}
+      </MantineProvider>
     </div>
   );
 }

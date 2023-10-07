@@ -7,9 +7,9 @@ import WeatherDetails from "./WeatherDetails";
 export default function Home() {
   const [weather, setWeather] = useState("");
   const [units, setUnits] = useState("metric");
-  
+
   //api removed for security reasons(find api key info from readme.md )
-  const apiKey = "Your API Key"; 
+  const apiKey = "Your API Key";
 
   // Used to display the temperature details in a readable manner
   const renderTemperature = (value) => {
@@ -22,11 +22,10 @@ export default function Home() {
     return `${value}\u212A`;
   };
 
-  
   // Function to fetch weather data
   const fetchWeatherData = async (loc, units) => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${apiKey}&units=${units}`;
-    
+
     try {
       const res = await axios.get(url);
       return {
@@ -65,9 +64,12 @@ export default function Home() {
   const updateWeatherData = async (selectedUnit = units) => {
     if (weather.city) {
       try {
-        const newWeatherData = await fetchWeatherData(weather.city, selectedUnit);
+        const newWeatherData = await fetchWeatherData(
+          weather.city,
+          selectedUnit
+        );
         setWeather(newWeatherData);
-        setUnits(selectedUnit)
+        setUnits(selectedUnit);
       } catch (error) {
         // Handle error if needed
       }
@@ -87,14 +89,22 @@ export default function Home() {
   return (
     //On clicking the button of GetWeather the api gets called and fetched and data is displayed.
     <div className="app">
-      <div className="search">
+      <div className="search w-[100%]">
         <form onSubmit={apiCall}>
           <input type="text" placeholder="Enter your city" name="loc" />
           <button className=" ml-4 px-8 py-2.5 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold">
             Get Weather
           </button>
         </form>
-        {weather && <WeatherDetails units={units} handleUnitChange={handleUnitChange} weather={weather} renderTemperature={renderTemperature} />}
+
+        {weather && (
+          <WeatherDetails
+            units={units}
+            handleUnitChange={handleUnitChange}
+            weather={weather}
+            renderTemperature={renderTemperature}
+          />
+        )}
       </div>
     </div>
   );

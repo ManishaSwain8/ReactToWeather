@@ -110,7 +110,13 @@ export default function Home() {
     <div className="app">
       <div className="search">
         <form onSubmit={apiCall}>
-          <input type="text" placeholder="Enter your city" name="loc" />
+        <input
+        type="text"
+        placeholder="Enter your city"
+         name="loc"
+        style={{ color: 'black', fontFamily: 'Poppins' }}
+        />
+
           <button className="ml-4 px-8 py-2.5 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold">
             Get Weather
           </button>

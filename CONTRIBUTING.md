@@ -6,6 +6,12 @@ Thank you for taking the time to contribute to our project. Please take a moment
 >
 > **Pull Requests having no issue associated with them will not be accepted. Firstly get an issue assigned, whether it's already opened or raised by you, and then create a Pull Request.**
 
+## 📃 Table of Contents
+1. [How to Contribute](#contribute)
+2. [Remarks](#remarks)
+3. [Commit Message Guidelines using Commitlint](#commitmsg)
+
+<a name="contribute"></a>
 ## How to Contribute 🤔
 
 ### Step 1: Fork the Repository
@@ -99,12 +105,17 @@ Your pull request will now be visible to the maintainers of the original reposit
 
 Congratulations! You have successfully created a pull request to contribute your changes to the repository. Remember to monitor the pull request for any updates or feedback from the maintainers.
 
+
+<a name="remarks"></a>
 ## Remarks ✅
 
 - If anything is missing or if you feel that something is not well described, please create [an issue](https://github.com/OSCode-Community/OSCodeCommunitySite/issues)
 - Any changes or suggestions to the existing content or repository are welcome.
 - No need to worry, if any changes are required, the maintainers will request them from you.
 
+
+
+<a name="commitmsg"></a>
 ### Commit Message Guidelines using Commitlint
 
 We follow a standardized commit message format using Commitlint to ensure consistency and clarity in our commit history. Each commit message should adhere to the following guidelines:

@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import "../index.css";
 import axios from "axios";
 import { WiHumidity } from "react-icons/wi";
@@ -8,27 +7,57 @@ import { FiWind } from "react-icons/fi";
 import { CiLocationOn } from "react-icons/ci";
 import { GiMountains } from "react-icons/gi";
 import { Center, Box, SegmentedControl } from "@mantine/core";
+
 export default function Home() {
   const [weather, setWeather] = useState("");
   const [city, setCity] = useState("");
-  const apiKey = "Your api key"; //api removed for security reasons(find api key info from readme.md )
+  const apiKey = "fcfc1bf78d9e9327060d9e2e8c00f2ba"; //api removed for security reasons(find api key info from readme.md )
   const [units, setUnits] = useState("metric");
+  const [inputType, setInputType] = useState('city');
+
+  const handleSelectChange = (e) => {
+    setInputType(e.target.value);
+  };
 
   const renderTemperature = (value) => {
     if (units === "metric") {
-      return `${value}\u00b0C`;
+      // Display temperature in Celsius
+      return `${value.toFixed(2)} °C`;
     }
     if (units === "imperial") {
-      return `${value}\u00b0F`;
+      // Convert from Celsius to Fahrenheit and display
+      const fahrenheit = (value * 9/5) + 32;
+      return `${fahrenheit.toFixed(2)} °F`;
     }
-    return `${value}\u212A`;
+    if (units === "standard") {
+      // Convert from Celsius to Kelvin and display
+      const kelvin = value + 273.15;
+      return `${kelvin.toFixed(2)} K`;
+    }
   };
 
   const apiCall = async (e) => {
     e.preventDefault();
-    const loc = e.target.elements.loc.value;
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${apiKey}&units=${units}`; //API url from OpenWeatherMap
+    const locElement = e.target.elements.loc;
+    const latElement = e.target.elements.lat;
+    const lonElement = e.target.elements.lon;
+
+    const loc = locElement ? locElement.value : null;
+    const lat = latElement ? latElement.value : null;
+    const lon = lonElement ? lonElement.value : null;
+
+    const url1 = `https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${apiKey}&units=${units}`; //API url from OpenWeatherMap
+    const url2=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
     try {
+      let url;
+      if (inputType === 'city' && loc) {
+        url = url1;
+      } else if (inputType === 'coordinates' && lat && lon) {
+        url = url2;
+      } else {
+        alert("Please enter a city name or latitude and longitude coordinates.");
+        return;
+      }
       const res = await axios.get(url);
       setWeather({
         descp: res.data.weather[0].description, //fetching data from API
@@ -41,13 +70,16 @@ export default function Home() {
       setCity(res.data.name);
     } catch (error) {
       if (error.response && error.response.status === 404) {
-        //Error handeling done using try and catch block .
-        alert("Please enter valid city name.");
+        //Error handling done using try and catch block.
+        alert("Please enter valid city name or latitude and longitude coordinates.");
       } else {
-        console.error("Error occured while fetching API data.");
+        console.error("Error occurred while fetching API data.");
       }
     }
+    if (latElement) latElement.value = "";
+    if (lonElement) lonElement.value = "";
   };
+
   const Weather = () => {
     return (
       <div className="container">
@@ -133,12 +165,24 @@ export default function Home() {
       </div>
     );
   };
+
   return (
-    //On clicking the button of GetWeather the api gets called and fetched and data is displayed.
     <div className="app">
       <div className="search">
         <form onSubmit={apiCall}>
-          <input type="text" placeholder="Enetr your city" name="loc" />
+          <select onChange={handleSelectChange} className="dropdown-menu">
+            <option value="city">Enter City</option>
+            <option value="coordinates">Enter Latitude and Longitude</option>
+          </select>
+
+          {inputType === 'city' ? (
+            <input type="text" placeholder="Enter your city" name="loc" />
+          ) : (
+            <>
+              <input type="text" placeholder="Enter latitude" name="lat" />
+              <input type="text" placeholder="Enter longitude" name="lon" />
+            </>
+          )}
 
           <button className=" ml-4 px-8 py-2.5 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold">
             Get Weather

@@ -71,7 +71,19 @@
 ::placeholder {
   color: aliceblue;
 }
+.dropdown-menu {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 20px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
 
+option{
+  background-color: black;
+}
 @media (max-width: 600px) {
   .bottom {
     display: flex;

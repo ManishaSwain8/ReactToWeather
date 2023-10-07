@@ -11,7 +11,8 @@
 }
 .app:before {
   content: "";
-  background: url("./assets/ubg1.jpg") no-repeat center center/cover;
+  /* background: url("./assets/ubg1.jpg") no-repeat center center/cover; */
+  background-color: black;
 
   position: absolute;
   width: 100%;
@@ -20,7 +21,12 @@
   left: 0;
   z-index: -1;
 }
+
+.search{
+  background-color: black;
+}
 .container {
+  
   max-width: 40vw;
   height: 70vh;
   margin: auto;
@@ -86,5 +92,38 @@
 @media (min-width: 1024px) {
   .container {
     max-width: 700px !important;
+  }
+}
+
+/* Daily forcast cards */
+.forecast-row {
+  display: flex;
+  margin-top: 20px;
+  flex-wrap: nowrap; 
+  overflow-x: auto; 
+  justify-content: space-between; 
+}
+
+.forecast-card {
+  width: 200px; 
+  padding: 1rem;
+  margin-right: 1rem; 
+  color: #fff; 
+  background-color: black;
+  border-radius: 8px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+@media (max-width: 768px) {
+  .forecast-row {
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+  }
+
+  .forecast-card {
+    margin-bottom: 1rem; 
   }
 }

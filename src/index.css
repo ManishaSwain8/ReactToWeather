@@ -72,6 +72,23 @@
   color: aliceblue;
 }
 
+::-webkit-scrollbar { 
+  width: 1rem;
+} 
+
+/* Track */
+::-webkit-scrollbar-track { 
+  background: #18181d;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb { 
+  background: #fff;
+  border: 5px solid transparent;
+  border-radius: 9px; 
+  background-clip: content-box;
+}
+
 @media (max-width: 600px) {
   .bottom {
     display: flex;

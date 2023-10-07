@@ -11,7 +11,7 @@ import { Center, Box, SegmentedControl } from "@mantine/core";
 export default function Home() {
   const [weather, setWeather] = useState("");
   const [city, setCity] = useState("");
-  const apiKey = "Your api key"; //api removed for security reasons(find api key info from readme.md )
+  const apiKey = process.env.REACT_APP_API_KEY; //api removed for security reasons(find api key info from readme.md )
   const [units, setUnits] = useState("metric");
 
   const renderTemperature = (value) => {
@@ -138,7 +138,7 @@ export default function Home() {
     <div className="app">
       <div className="search">
         <form onSubmit={apiCall}>
-          <input type="text" placeholder="Enetr your city" name="loc" />
+          <input type="text" placeholder="Enter your city" name="loc" />
 
           <button className=" ml-4 px-8 py-2.5 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold">
             Get Weather

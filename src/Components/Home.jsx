@@ -11,7 +11,7 @@ import { Center, Box, SegmentedControl } from "@mantine/core";
 export default function Home() {
   const [weather, setWeather] = useState("");
   const [city, setCity] = useState("");
-  const apiKey = "fcfc1bf78d9e9327060d9e2e8c00f2ba"; //api removed for security reasons(find api key info from readme.md )
+  const apiKey = "your api key"; //api removed for security reasons(find api key info from readme.md )
   const [units, setUnits] = useState("metric");
   const [inputType, setInputType] = useState('city');
 

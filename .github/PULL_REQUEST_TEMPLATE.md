@@ -21,6 +21,10 @@
 - [ ] This PR does not contain any plagiarized content.
 - [ ] The title of my pull request provides a brief description of the requested changes.
 
+<!-- Check one of these -->
+- [ ] I am contributing independently.
+- [ ] I am contributing for Hacktoberfest 2023.
+
 ## Potential Impact on Existing Code
 
 <!-- Describe any potential impact of your changes on existing code. For example, mention if it might break existing functionality or require modifications to other parts of the codebase. -->

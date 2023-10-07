@@ -24,6 +24,18 @@
   <img src="https://img.shields.io/github/last-commit/ManishaSwain8/ReactToWeather?style=for-the-badge" />
  </p>
 
+## 📃 Table of Contents
+1. [About ReactToWeather](#about)
+2. [Want to Contribute?](#contribute)
+3. [Info About API](#api)
+4. [Prerequisites](#prerequisites)
+5. [Tech Stack Used](#techstack)
+6. [Preview](#preview)
+7. [License](#license)
+8. [Code of Conduct](#coc)
+
+
+<a name="about"></a>
 <div align="center"><h1>🙌 About ReactToWeather</h1></div>
 
 -This is a beginner friendly project .
@@ -34,9 +46,8 @@
 
 <h3>*** Lets make it unique ***</h3>  
 
-
+<a name="contribute"></a>
 <div align="center"><h1>💈 Want to Contribute?</h1></div>
-
 
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.</br>
@@ -108,6 +119,8 @@ git push origin <branch-name>
 
  <h3>*** Banzai banzai, yatta ne !! ***</h3> 
 
+
+<a name="api"></a>
  <div align="center"><h1>💫 Info about API </h1></div>
 
  <img src="https://ds-blobs-4.cdn.devapps.ru/23868180.png"/>
@@ -116,6 +129,7 @@ Use the api from OpenWeatherMap (Current Weather Data package)
 OpenWeatherMap- https://openweathermap.org/current
  
 
+<a name="prerequisites"></a>
 <div align="center"><h1>🧾 Prerequisites</h1></div>
 
 Before starting out, you'll need to install the following on your computer.
@@ -130,6 +144,8 @@ Before starting out, you'll need to install the following on your computer.
   </a>
 </div>
 
+
+<a name="techstack"></a>
 <div align="center"><h1>⚡ Tech Stack Used</h1></div>
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
@@ -141,13 +157,19 @@ Before starting out, you'll need to install the following on your computer.
 
 
 <br>
+<a name="preview"></a>
 <div align="center"><h1>👀 Preview </h1></div>
 
 ![Screenshot (187)](https://github.com/ManishaSwain8/WeatherWebApp/assets/96622693/52dab97a-f58f-491d-bafc-e540d0090c78)
 
+
+<a name="license"></a>
 <div align="center"><h1>📜 License</h1></div>
 
 This Community is <a href="https://github.com/ManishaSwain8/ReactToWeather/blob/master/LICENSE">Licensed</a> under MIT license.
+
+
+<a name="coc"></a>
 <div align="center"><h1>🧧 Code of Conduct</h1></div>
 
 Check out <a href="https://github.com/ManishaSwain8/ReactToWeather/blob/master/CONTRIBUTING.md">Code of Conduct</a> to know inclusive environment that respects all contributions.

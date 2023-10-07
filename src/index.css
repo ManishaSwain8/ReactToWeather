@@ -21,8 +21,8 @@
   z-index: -1;
 }
 .container {
-  max-width: 700px;
-  height: 700px;
+  max-width: 40vw;
+  height: 70vh;
   margin: auto;
   padding: 0 1rem;
   top: 10%;
@@ -30,7 +30,7 @@
   top: 10%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   background: rgba(3, 4, 14, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(5.5px);

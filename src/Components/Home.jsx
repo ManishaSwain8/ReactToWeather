@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../index.css";
 import axios from "axios";
 import { WiHumidity } from "react-icons/wi";
@@ -24,21 +24,35 @@ export default function Home() {
     return `${value}\u212A`;
   };
 
-  const apiCall = async (e) => {
-    e.preventDefault();
-    const loc = e.target.elements.loc.value;
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${apiKey}&units=${units}`; //API url from OpenWeatherMap
+  
+  // Function to fetch weather data
+  const fetchWeatherData = async (loc, units) => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${apiKey}&units=${units}`;
+    
     try {
       const res = await axios.get(url);
-      setWeather({
-        descp: res.data.weather[0].description, //fetching data from API
+      return {
+        descp: res.data.weather[0].description,
         temp: res.data.main.temp,
         city: res.data.name,
         humidity: res.data.main.humidity,
         wind: res.data.wind.speed,
         feel: res.data.main.feels_like,
-      });
-      setCity(res.data.name);
+      };
+    } catch (error) {
+      console.error("Error occurred while fetching API data.");
+      throw error;
+    }
+  };
+
+  const apiCall = async (e) => {
+    e.preventDefault();
+    const loc = e.target.elements.loc.value;
+
+    try {
+      const newWeatherData = await fetchWeatherData(loc, units);
+      setWeather(newWeatherData);
+      setCity(newWeatherData.city);
     } catch (error) {
       if (error.response && error.response.status === 404) {
         //Error handeling done using try and catch block .
@@ -48,6 +62,30 @@ export default function Home() {
       }
     }
   };
+
+  // Function to update weather data when the unit changes
+  const updateWeatherData = async (selectedUnit = units) => {
+    if (weather.city) {
+      try {
+        const newWeatherData = await fetchWeatherData(weather.city, selectedUnit);
+        setWeather(newWeatherData);
+        setUnits(selectedUnit)
+      } catch (error) {
+        // Handle error if needed
+      }
+    }
+  };
+
+  // Add useEffect to update weather data when the unit changes
+  useEffect(() => {
+    updateWeatherData();
+  }, [units]);
+
+  // Function to handle unit button click and update units state
+  const handleUnitChange = (selectedUnit) => {
+    updateWeatherData(selectedUnit);
+  };
+
   const Weather = () => {
     return (
       <div className="container">
@@ -58,7 +96,7 @@ export default function Home() {
               radius="lg"
               color="rgba(103, 9, 171, 1)"
               value={units}
-              onChange={setUnits}
+              onChange={handleUnitChange}
               data={[
                 {
                   value: "standard",
@@ -138,7 +176,7 @@ export default function Home() {
     <div className="app">
       <div className="search">
         <form onSubmit={apiCall}>
-          <input type="text" placeholder="Enetr your city" name="loc" />
+          <input type="text" placeholder="Enter your city" name="loc" />
 
           <button className=" ml-4 px-8 py-2.5 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold">
             Get Weather

@@ -10,7 +10,7 @@ export default function Home() {
   const [units, setUnits] = useState('metric');
   const [showForecast, setShowForecast] = useState(false);
 
-  const apiKey = '58f4ff45ae64ddc14419863f7ae969dc';
+  const apiKey = 'Your_API_KEY';
 
   const renderTemperature = (value) => {
     if (units === 'metric') {

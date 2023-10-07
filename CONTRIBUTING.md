@@ -9,7 +9,7 @@ Thank you for taking the time to contribute to our project. Please take a moment
 ## 📃 Table of Contents
 1. [How to Contribute](#contribute)
 2. [Remarks](#remarks)
-3. [Commit Message Guidelines using Commitlint](#commitmsg)
+3. [Commit Message Guidelines using Commitline](#commitmsg)
 
 <a name="contribute"></a>
 ## How to Contribute 🤔

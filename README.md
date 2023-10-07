@@ -104,6 +104,8 @@ git push origin <branch-name>
 
 - Make a pull request! (compare your branch with the owner main branch)
 
+<h4>⚠️ Do not open PR unless it is assigned to you ,else the PR will not get merged !🚧 </h4>
+
  <h3>*** Banzai banzai, yatta ne !! ***</h3> 
 
  <div align="center"><h1>💫 Info about API </h1></div>

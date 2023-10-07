@@ -21,23 +21,19 @@ export default function Home() {
 
   const renderTemperature = (value) => {
     if (units === "metric") {
-      // Display temperature in Celsius
-      return `${value.toFixed(2)} °C`;
+      return `${value}\u00b0C`;
     }
     if (units === "imperial") {
-      // Convert from Celsius to Fahrenheit and display
-      const fahrenheit = (value * 9/5) + 32;
-      return `${fahrenheit.toFixed(2)} °F`;
+      return `${value}\u00b0F`;
     }
-    if (units === "standard") {
-      // Convert from Celsius to Kelvin and display
-      const kelvin = value + 273.15;
-      return `${kelvin.toFixed(2)} K`;
-    }
+    return `${value}\u212A`;
   };
+
+  
 
   const apiCall = async (e) => {
     e.preventDefault();
+    setWeather("");
     const locElement = e.target.elements.loc;
     const latElement = e.target.elements.lat;
     const lonElement = e.target.elements.lon;
@@ -70,7 +66,6 @@ export default function Home() {
       setCity(res.data.name);
     } catch (error) {
       if (error.response && error.response.status === 404) {
-        //Error handling done using try and catch block.
         alert("Please enter valid city name or latitude and longitude coordinates.");
       } else {
         console.error("Error occurred while fetching API data.");

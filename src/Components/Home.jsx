@@ -6,7 +6,7 @@ import axios from 'axios';
 import WeatherDetails from './WeatherDetails';
 import ForecastCard from './ForecastCard';
 import toast from "react-hot-toast";
-
+import Loader from "react-js-loader";
 
 export default function Home() {
   const [weather, setWeather] = useState('');
@@ -14,8 +14,9 @@ export default function Home() {
   const [units, setUnits] = useState('metric');
   const [showForecast, setShowForecast] = useState(false);
   const [inputType, setInputType] = useState("city");
+  const [loading, setLoading] = useState(false);
 
-  const apiKey = 'Your_Api_Key'; //api removed for security reasons(find api key info from readme.md )
+  const apiKey = 'Your_Api_Key'; //api removed for security reasons(find api key info from readme.md ) 
 
   const handleInputTypeChange = (e) => {
     setInputType(e.target.value);
@@ -88,6 +89,7 @@ export default function Home() {
 
   const apiCall = async (e) => {
     e.preventDefault();
+    setLoading(true);
     let loc = "";
     let lat = "";
     let lon = "";
@@ -107,6 +109,7 @@ export default function Home() {
 
       setWeather(newWeatherData);
       setForecast(forecastData);
+      setLoading(false);
     } catch (error) {
       if (error.response && error.response.status === 404) {
         //Error handeling done using try and catch block .
@@ -116,6 +119,7 @@ export default function Home() {
         console.error("Error occured while fetching API data.");
         setWeather("");
       }
+      setLoading(false);
     }
   };
 
@@ -178,14 +182,21 @@ export default function Home() {
             Get Weather
           </button>
         </form>
-        {weather && (
-          <WeatherDetails
-            units={units}
-            handleUnitChange={handleUnitChange}
-            weather={weather}
-            renderTemperature={renderTemperature}
-          />
-        )}
+        {loading ? ( // Conditionally render the loader while loading is true
+        <div className="loader-container">
+           <Loader type="bubble-top" bgColor={"#6709AB"} title={""} size={100} />
+        </div>
+         
+        ) : (
+          <>
+            {weather && (
+              <WeatherDetails
+                units={units}
+                handleUnitChange={handleUnitChange}
+                weather={weather}
+                renderTemperature={renderTemperature}
+              />
+            )}
 
 
         {/* Toggle button for forecast */}
@@ -195,6 +206,9 @@ export default function Home() {
         >
           {showForecast ? 'Hide Forecast' : 'Show Forecast'}
         </button>
+
+        </> )
+      }
 
         {/* Render the forecast if showForecast is true */}
         {showForecast && (

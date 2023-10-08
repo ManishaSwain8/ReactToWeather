@@ -3,13 +3,14 @@ import { useState, useEffect } from "react";
 import "../index.css";
 import axios from "axios";
 import WeatherDetails from "./WeatherDetails";
+import toast from "react-hot-toast";
 
 export default function Home() {
   const [weather, setWeather] = useState("");
   const [units, setUnits] = useState("metric");
-  
+
   //api removed for security reasons(find api key info from readme.md )
-  const apiKey = "Your API Key"; 
+  const apiKey = "111cea304b54b49df94e294221cc8b63";
 
   // Used to display the temperature details in a readable manner
   const renderTemperature = (value) => {
@@ -22,13 +23,13 @@ export default function Home() {
     return `${value}\u212A`;
   };
 
-  
   // Function to fetch weather data
   const fetchWeatherData = async (loc, units) => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${apiKey}&units=${units}`;
-    
+
     try {
       const res = await axios.get(url);
+      toast.success("Search Successful");
       return {
         descp: res.data.weather[0].description,
         temp: res.data.main.temp,
@@ -38,6 +39,7 @@ export default function Home() {
         feel: res.data.main.feels_like,
       };
     } catch (error) {
+      toast.error("Error while fetching data from API");
       console.error("Error occurred while fetching API data.");
       throw error;
     }
@@ -54,9 +56,11 @@ export default function Home() {
     } catch (error) {
       if (error.response && error.response.status === 404) {
         //Error handeling done using try and catch block .
-        alert("Please enter valid city name.");
+        toast.error("Inavlid city name");
+        setWeather("");
       } else {
         console.error("Error occured while fetching API data.");
+        setWeather("");
       }
     }
   };
@@ -65,9 +69,12 @@ export default function Home() {
   const updateWeatherData = async (selectedUnit = units) => {
     if (weather.city) {
       try {
-        const newWeatherData = await fetchWeatherData(weather.city, selectedUnit);
+        const newWeatherData = await fetchWeatherData(
+          weather.city,
+          selectedUnit
+        );
         setWeather(newWeatherData);
-        setUnits(selectedUnit)
+        setUnits(selectedUnit);
       } catch (error) {
         // Handle error if needed
       }
@@ -75,9 +82,9 @@ export default function Home() {
   };
 
   // Add useEffect to update weather data when the unit changes
-  useEffect(() => {
-    updateWeatherData();
-  }, [units]);
+  // useEffect(() => {
+  //   updateWeatherData();
+  // }, [units]);
 
   // Function to handle unit button click and update units state
   const handleUnitChange = (selectedUnit) => {
@@ -94,7 +101,14 @@ export default function Home() {
             Get Weather
           </button>
         </form>
-        {weather && <WeatherDetails units={units} handleUnitChange={handleUnitChange} weather={weather} renderTemperature={renderTemperature} />}
+        {weather && (
+          <WeatherDetails
+            units={units}
+            handleUnitChange={handleUnitChange}
+            weather={weather}
+            renderTemperature={renderTemperature}
+          />
+        )}
       </div>
     </div>
   );

@@ -154,14 +154,14 @@ export default function Home() {
           </select>
 
           {inputType === "city" ? (
-            <input type="text" placeholder="Enter your city" name="loc" className='m-2 sm:w-1/4 w-max' />
+            <input type="text" placeholder="Enter your city" name="loc" className='m-2 lg:w-1/4 md:w-1/2 w-max' />
           ) : (
             <>
-              <input type="text" placeholder="Enter latitude" name="lat" className='m-2 sm:w-1/4 w-max' />
-              <input type="text" placeholder="Enter longitude" name="lon" className='m-2 sm:w-1/4 w-max'/>
+              <input type="text" placeholder="Enter latitude" name="lat" className='m-2 lg:w-1/4 w-max' />
+              <input type="text" placeholder="Enter longitude" name="lon" className='m-2 lg:w-1/4 w-max'/>
+              <br/>
             </>
           )}
-
           <button className=" m-4 px-8 py-2.5 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold">
             Get Weather
           </button>

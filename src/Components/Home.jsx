@@ -16,7 +16,7 @@ export default function Home() {
   const [inputType, setInputType] = useState("city");
   const [loading, setLoading] = useState(false);
 
-  const apiKey = 'Your_Api_Key'; //api removed for security reasons(find api key info from readme.md ) 
+  const apiKey = 'f7fdeb46bd70cd4d1642435fe33aa6c5'; //api removed for security reasons(find api key info from readme.md ) 
 
   const handleInputTypeChange = (e) => {
     setInputType(e.target.value);
@@ -184,7 +184,7 @@ export default function Home() {
         </form>
         {loading ? ( // Conditionally render the loader while loading is true
         <div className="loader-container">
-           <Loader type="bubble-top" bgColor={"#6709AB"} title={""} size={100} />
+           <Loader type="bubble-top" bgColor={"#6709AB"} title={""} size={80} />
         </div>
          
         ) : (

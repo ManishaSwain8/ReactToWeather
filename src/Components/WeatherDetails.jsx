@@ -8,7 +8,7 @@ import { GiMountains } from "react-icons/gi";
 import { Center, Box, SegmentedControl } from "@mantine/core";
 
 // The weather box component
-export default function WeatherDetails({units, handleUnitChange, weather, renderTemperature}) {
+export default function WeatherDetails({ units, handleUnitChange, weather, renderTemperature }) {
     return (
         <div className="container">
           {" "}
@@ -24,7 +24,8 @@ export default function WeatherDetails({units, handleUnitChange, weather, render
                     value: "standard",
                     label: (
                       <Center>
-                        <Box>Kelvin</Box>
+                        <Box className="hidden sm:block">Kelvin</Box>
+                        <Box className="sm:hidden">K</Box>
                       </Center>
                     ),
                   },
@@ -32,7 +33,8 @@ export default function WeatherDetails({units, handleUnitChange, weather, render
                     value: "metric",
                     label: (
                       <Center>
-                        <Box>Celsius</Box>
+                        <Box className="hidden sm:block">Celsius</Box>
+                        <Box className="sm:hidden">°C</Box>
                       </Center>
                     ),
                   },
@@ -40,7 +42,8 @@ export default function WeatherDetails({units, handleUnitChange, weather, render
                     value: "imperial",
                     label: (
                       <Center>
-                        <Box>Fahrenheit</Box>
+                        <Box className="hidden sm:block">Fahrenheit</Box>
+                        <Box className="sm:hidden">°F</Box>
                       </Center>
                     ),
                   },
@@ -50,16 +53,16 @@ export default function WeatherDetails({units, handleUnitChange, weather, render
           </div>
           <div className="top">
             <div className="text-left ">
-              <div className="flex gap-2">
-                <p className="text-3xl  ">{weather.city}</p>
+              <div className="flex gap-2 m-2">
+                <p className="text-2xl sm:text-3xl">{weather.city}</p>
                 <CiLocationOn size={25} />
               </div>
-              <div className="text-7xl font-bold mt-2 max-sm:text-6xl">
+              <div className="text-5xl sm:text-7xl font-bold m-2">
                 {renderTemperature(weather.temp)}
               </div>
             </div>
           </div>
-          <div className="flex gap-1">
+          <div className="flex gap-1 m-1">
             <GiMountains size={25} />
             <p className="description">
               Today's weather is {weather.descp} in {weather.city}.
@@ -67,26 +70,34 @@ export default function WeatherDetails({units, handleUnitChange, weather, render
           </div>
           <div className="bottom">
             <div className="feels">
-              <p className="text-2xl font-bold">
-                {renderTemperature(weather.feel)}
-              </p>
-              <div className="flex gap-1 max-sm:ml-14">
-                Feels like:
-                <FaLeaf size={20} />
+              <div className="weather-attribute m-2">
+                <div className="text-2xl font-bold">
+                  {renderTemperature(weather.feel)}
+                </div>
+                <div className="flex gap-1 place-content-center">
+                  Feels like:
+                  <FaLeaf size={20} />
+                </div>
               </div>
             </div>
             <div>
-              <p className="text-2xl font-bold">{weather.humidity}%</p>
-              <div className="flex gap-1 max-sm:ml-14">
-                Humidity:
-                <WiHumidity size={25} />
+              <div className="weather-attribute m-2">
+                <div className="text-2xl font-bold">{weather.humidity}%
+                </div>
+                <div className="flex gap-1 place-content-center">
+                  Humidity:
+                  <WiHumidity size={25} />
+                </div>
               </div>
             </div>
             <div className="">
-              <p className="text-2xl font-bold ">{weather.wind}MPH</p>
-              <div className="flex gap-1 max-sm:ml-14">
-                Wind speed:
-                <FiWind size={25} />
+              <div className="weather-attribute m-2">
+                <div className="text-2xl font-bold ">{weather.wind}MPH
+                </div>
+                <div className="flex gap-1 place-content-center">
+                  Wind speed:
+                  <FiWind size={25} />
+                </div>
               </div>
             </div>
           </div>{" "}

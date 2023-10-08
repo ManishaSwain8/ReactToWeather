@@ -3,12 +3,14 @@ import { useState, useEffect } from "react";
 import "../index.css";
 import axios from "axios";
 import WeatherDetails from "./WeatherDetails";
+import Loader from "react-js-loader";
 
 
 export default function Home() {
   const [weather, setWeather] = useState(null);
-  const apiKey = "Your API Key";  //api removed for security reasons(find api key info from readme.md )
+  const apiKey = "Your API here";  //api removed for security reasons(find api key info from readme.md )
   const [units, setUnits] = useState("metric");
+  const [loading, setLoading] = useState(false); // Add loading state
   const [inputType, setInputType] = useState("city");
 
   const handleInputTypeChange = (e) => {
@@ -35,6 +37,7 @@ export default function Home() {
     }
 
     try {
+      setLoading(true); // Set loading state to true
       const res = await axios.get(url);
       return {
         descp: res.data.weather[0].description,
@@ -47,6 +50,8 @@ export default function Home() {
     } catch (error) {
       console.error("Error occurred while fetching API data.");
       throw error;
+    } finally {
+      setLoading(false); // Set loading state to false
     }
   };
 
@@ -133,13 +138,21 @@ export default function Home() {
           </button>
         </form>
 
-        {weather && (
-          <WeatherDetails
-            units={units}
-            handleUnitChange={handleUnitChange}
-            weather={weather}
-            renderTemperature={renderTemperature}
-          />
+        {loading ? (
+           <div className="loader-container">
+             <Loader type="bubble-top"  bgColor={"#FFFFFF"} title={"Loading"} size={100} />
+           </div>
+
+         
+        ) : (
+          weather && (
+            <WeatherDetails
+              units={units}
+              handleUnitChange={handleUnitChange}
+              weather={weather}
+              renderTemperature={renderTemperature}
+            />
+          )
         )}
       </div>
     </div>

@@ -20,6 +20,14 @@
   left: 0;
   z-index: -1;
 }
+
+.loader-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .container {
   max-width: 40vw;
   height: 70vh;

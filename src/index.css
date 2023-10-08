@@ -87,6 +87,24 @@ option{
   background-color: black;
 }
 
+
+::-webkit-scrollbar { 
+  width: 1.25rem;
+} 
+
+/* Track */
+::-webkit-scrollbar-track { 
+  background: #000000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb { 
+  background: linear-gradient(to bottom,#000000,#6b21a8);
+  border: 5px solid transparent;
+  border-radius: 12px; 
+  background-clip: content-box;
+}
+
 @media (max-width: 600px) {
   .bottom {
     display: flex;

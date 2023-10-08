@@ -37,9 +37,9 @@ html, body, .root, .search{
 
 
 .container {
-  
+  height: 70vh;
   margin: auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
   top: 10%;
   top: 10%;
   display: flex;

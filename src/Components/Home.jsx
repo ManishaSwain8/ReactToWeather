@@ -52,6 +52,7 @@ export default function Home() {
         humidity: res.data.main.humidity,
         wind: res.data.wind.speed,
         feel: res.data.main.feels_like,
+        condition: res.data.weather[0].main,
       };
     } catch (error) {
 

@@ -1,0 +1,58 @@
+[
+  {
+    "condition": "Thunderstorm",
+    "backgroundImg": "url(https://images.unsplash.com/photo-1634054961356-8f9d5557c300?w=500)"
+  },
+  {
+    "condition": "Drizzle",
+    "backgroundImg": "url(https://images.unsplash.com/photo-1664116945134-194bc8d65411?w=500)"
+  },
+  {
+    "condition": "Rain",
+    "backgroundImg": "url(https://images.unsplash.com/photo-1562781105-c53c27ff6007?w=500)"
+  },
+  {
+    "condition": "Snow",
+    "backgroundImg": "url(https://images.unsplash.com/photo-1542601098-8fc114e148e2?w=500)"
+  },
+  {
+    "condition": "Mist",
+    "backgroundImg": "url(https://images.unsplash.com/photo-1603233695327-3aa6aeda2657?w=500)"
+  },
+  {
+    "condition": "Smoke",
+    "backgroundImg": "url(https://images.unsplash.com/photo-1602410086232-0cdfb78b434f?w=500)"
+  },
+  {
+    "condition": "Haze",
+    "backgroundImg": "url(https://images.unsplash.com/photo-1488342021833-581baa86e81b?w=500)"
+  },
+  {
+    "condition": "Dust",
+    "backgroundImg": "url(https://images.unsplash.com/photo-1603695820889-f8a0a86b8712?w=500)"
+  },
+  {
+    "condition": "Fog",
+    "backgroundImg": "url(https://images.unsplash.com/photo-1444837881208-4d46d5c1f127?w=500)"
+  },
+  {
+    "condition": "Sand",
+    "backgroundImg": "url(https://images.unsplash.com/photo-1533731172785-3e220a22c6a8?w=500)"
+  },
+  {
+    "condition": "Ash",
+    "backgroundImg": "url(https://images.unsplash.com/photo-1514030849962-49ac486d3d20?w=500)"
+  },
+  {
+    "condition": "Tornado",
+    "backgroundImg": "url(https://images.unsplash.com/photo-1527482937786-6608f6e14c15?w=500)"
+  },
+  {
+    "condition": "Clear",
+    "backgroundImg": "url(https://images.unsplash.com/photo-1601297183305-6df142704ea2?w=500)"
+  },
+  {
+    "condition": "Clouds",
+    "backgroundImg": "url(https://images.unsplash.com/photo-1500740516770-92bd004b996e?w=500)"
+  }
+]

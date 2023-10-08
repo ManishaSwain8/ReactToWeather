@@ -6,11 +6,25 @@ import { FiWind } from "react-icons/fi";
 import { CiLocationOn } from "react-icons/ci";
 import { GiMountains } from "react-icons/gi";
 import { Center, Box, SegmentedControl } from "@mantine/core";
+import backgroundsData from '../data/backgrounds.json'
 
+function getBackgroundImgUrl(condition) {
+  const backgroundImg = backgroundsData.find(obj => obj.condition === condition)?.backgroundImg;
+  console.log("img:", backgroundImg);
+  return backgroundImg || `url(https://source.unsplash.com/random?${condition})`;
+}
 // The weather box component
 export default function WeatherDetails({ units, handleUnitChange, weather, renderTemperature }) {
+  const backgroundImgUrl = getBackgroundImgUrl(weather.condition);
+  const containerStyle = {
+    backgroundImage: `${backgroundImgUrl}`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundColor: 'rgba(0, 0, 0, 0.6)'
+  };
     return (
-        <div className="container">
+        <div className="container bg-blend-multiply" style={containerStyle}>
           {" "}
           <div>
             <div className="mt-2">

@@ -7,7 +7,7 @@ import WeatherDetails from "./WeatherDetails";
 
 export default function Home() {
   const [weather, setWeather] = useState(null);
-  const apiKey = "Your API Key";
+  const apiKey = "Your API Key";  //api removed for security reasons(find api key info from readme.md )
   const [units, setUnits] = useState("metric");
   const [inputType, setInputType] = useState("city");
 
@@ -25,6 +25,7 @@ export default function Home() {
     return `${value}\u212A`;
   };
 
+   // Function to fetch weather data
   const fetchWeatherData = async (loc, lat, lon, units) => {
     let url;
     if (loc) {
@@ -49,6 +50,7 @@ export default function Home() {
     }
   };
 
+  // Runs when the user submits the form with the location data
   const apiCall = async (e) => {
     e.preventDefault();
     let loc = "";
@@ -67,6 +69,7 @@ export default function Home() {
       setWeather(newWeatherData);
     } catch (error) {
       if (error.response && error.response.status === 404) {
+        //Error handeling done using try and catch block .
         alert("Please enter valid city name or coordinates.");
       } else {
         console.error("Error occurred while fetching API data.");
@@ -74,6 +77,7 @@ export default function Home() {
     }
   };
 
+  // Function to update weather data when the unit changes
   const updateWeatherData = async (selectedUnit = units) => {
     if (weather && weather.city) {
       try {
@@ -91,15 +95,18 @@ export default function Home() {
     }
   };
 
+  // Add useEffect to update weather data when the unit changes
   useEffect(() => {
     updateWeatherData();
   }, [units]);
 
+  // Function to handle unit button click and update units state
   const handleUnitChange = (selectedUnit) => {
     updateWeatherData(selectedUnit);
   };
 
   return (
+     //On clicking the button of GetWeather the api gets called and fetched and data is displayed.
     <div className="app">
       <div className="search">
         <form onSubmit={apiCall}>

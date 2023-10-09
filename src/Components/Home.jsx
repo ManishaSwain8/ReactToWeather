@@ -160,10 +160,10 @@ export default function Home() {
      //On clicking the button of GetWeather the api gets called and fetched and data is displayed.
     <div className="app">
       <div className="search">
-        <form onSubmit={apiCall}>
+        <form onSubmit={apiCall} className="flex flex-col md:flex-row items-center  md:items-center lg:pl-9">
           <select
             onChange={handleInputTypeChange}
-            className="dropdown-menu mx-auto sm:mx-0"
+            className="dropdown-menu mx-auto sm:mx-0 mt-4"
             value={inputType}
           >
             <option value="city">Enter City</option>
@@ -171,7 +171,7 @@ export default function Home() {
           </select>
 
           {inputType === "city" ? (
-            <input type="text" placeholder="Enter your city" name="loc" className='m-2 lg:w-1/4 md:w-1/2 w-max' />
+            <input type="text" placeholder="Enter your city" name="loc" className='ml-4 lg:w-1/2 md:w-1/2 w-max' />
           ) : (
             <>
               <input type="text" placeholder="Enter latitude" name="lat" className='m-2 lg:w-1/4 w-max' />
@@ -179,9 +179,16 @@ export default function Home() {
               <br/>
             </>
           )}
-          <button className=" m-4 px-8 py-2.5 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold">
+          <button className="m-4 px-12 py-2.5 md:py-1.8 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold">
             Get Weather
           </button>
+        {/* Toggle button for forecast */}
+        <button
+          className="m-3 px-11 py-2.5 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold ml-4 md:ml-64"
+          onClick={toggleForecast}
+        >
+          {showForecast ? 'Hide Forecast' : 'Show Forecast'}
+        </button>
         </form>
         {loading ? ( // Conditionally render the loader while loading is true
         <div className="loader-container">
@@ -191,23 +198,15 @@ export default function Home() {
         ) : (
           <>
             {weather && (
+            <div className="md:justify-center">
               <WeatherDetails
                 units={units}
                 handleUnitChange={handleUnitChange}
                 weather={weather}
                 renderTemperature={renderTemperature}
               />
+             </div>
             )}
-
-
-        {/* Toggle button for forecast */}
-        <button
-          className="m-4 px-8 py-2.5 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold"
-          onClick={toggleForecast}
-        >
-          {showForecast ? 'Hide Forecast' : 'Show Forecast'}
-        </button>
-
         </> )
       }
 

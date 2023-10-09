@@ -73,6 +73,9 @@ html, body, .root, .search{
 .app .search {
   text-align: center;
   padding: 4rem;
+  align-items: flex-start; 
+  height: 150vh;
+  width:  auto;
 }
 .app input {
   padding: 0.7rem 1.5rem;
@@ -176,9 +179,12 @@ option{
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 395px) {
   .app .search {
     padding: 1rem;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
   }
 }
 

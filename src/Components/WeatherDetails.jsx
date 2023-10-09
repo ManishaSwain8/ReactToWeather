@@ -10,7 +10,6 @@ import backgroundsData from '../data/backgrounds.json'
 
 function getBackgroundImgUrl(condition) {
   const backgroundImg = backgroundsData.find(obj => obj.condition === condition)?.backgroundImg;
-  console.log("img:", backgroundImg);
   return backgroundImg || `url(https://source.unsplash.com/random?${condition})`;
 }
 // The weather box component

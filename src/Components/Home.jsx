@@ -184,7 +184,7 @@ export default function Home() {
           </button>
         {/* Toggle button for forecast */}
         <button
-          className="m-3 px-11 py-2.5 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold ml-4 md:ml-64"
+          className="m-3 px-11 py-2.5 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold ml-4"
           onClick={toggleForecast}
         >
           {showForecast ? 'Hide Forecast' : 'Show Forecast'}

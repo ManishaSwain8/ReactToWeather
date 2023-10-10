@@ -1,7 +1,6 @@
 
 
-import React, { useState, useEffect } from 'react';
-import '../index.css';
+import React, { useState } from 'react';
 import axios from 'axios';
 import WeatherDetails from './WeatherDetails';
 import ForecastCard from './ForecastCard';

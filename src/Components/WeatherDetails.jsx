@@ -1,5 +1,4 @@
 import React from "react";
-import "../index.css";
 import { WiHumidity } from "react-icons/wi";
 import { FaLeaf } from "react-icons/fa";
 import { FiWind } from "react-icons/fi";

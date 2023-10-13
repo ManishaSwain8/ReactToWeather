@@ -157,7 +157,7 @@ export default function Home() {
   };
 
   return (
-     //On clicking the button of GetWeather the api gets called and fetched and data is displayed.
+    //On clicking the button of GetWeather the api gets called and fetched and data is displayed.
     <div className="app">
       <div className="search">
         <form onSubmit={apiCall} className="flex flex-col md:flex-row items-center  md:items-center lg:pl-9">
@@ -175,40 +175,40 @@ export default function Home() {
           ) : (
             <>
               <input type="text" placeholder="Enter latitude" name="lat" className='m-2 lg:w-1/4 w-max' />
-              <input type="text" placeholder="Enter longitude" name="lon" className='m-2 lg:w-1/4 w-max'/>
-              <br/>
+              <input type="text" placeholder="Enter longitude" name="lon" className='m-2 lg:w-1/4 w-max' />
+              <br />
             </>
           )}
           <button className="m-4 px-12 py-2.5 md:py-1.8 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold">
             Get Weather
           </button>
-        {/* Toggle button for forecast */}
-        <button
-          className="m-3 px-11 py-2.5 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold ml-4"
-          onClick={toggleForecast}
-        >
-          {showForecast ? 'Hide Forecast' : 'Show Forecast'}
-        </button>
+          {/* Toggle button for forecast */}
+          <button
+            className="m-3 px-11 py-2.5 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold ml-4"
+            onClick={toggleForecast}
+          >
+            {showForecast ? 'Hide Forecast' : 'Show Forecast'}
+          </button>
         </form>
         {loading ? ( // Conditionally render the loader while loading is true
-        <div className="loader-container">
-           <Loader type="bubble-top" bgColor={"#6709AB"} title={""} size={80} />
-        </div>
-         
+          <div className="loader-container">
+            <Loader type="bubble-top" bgColor={"#6709AB"} title={""} size={80} />
+          </div>
+
         ) : (
           <>
             {weather && (
-            <div className="md:justify-center">
-              <WeatherDetails
-                units={units}
-                handleUnitChange={handleUnitChange}
-                weather={weather}
-                renderTemperature={renderTemperature}
-              />
-             </div>
+              <div className="md:justify-center">
+                <WeatherDetails
+                  units={units}
+                  handleUnitChange={handleUnitChange}
+                  weather={weather}
+                  renderTemperature={renderTemperature}
+                />
+              </div>
             )}
-        </> )
-      }
+          </>)
+        }
 
         {/* Render the forecast if showForecast is true */}
         {showForecast && (
@@ -216,7 +216,7 @@ export default function Home() {
             {forecast.map((day) => (
               <ForecastCard
                 key={day.date}
-                date={new Date(day.date * 1000).toDateString()} 
+                date={new Date(day.date * 1000).toDateString()}
                 temperature={day.temperature}
                 description={day.description}
                 humidity={day.humidity}

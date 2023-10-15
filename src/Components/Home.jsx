@@ -7,6 +7,7 @@ import WeatherDetails from './WeatherDetails';
 import ForecastCard from './ForecastCard';
 import toast from "react-hot-toast";
 import Loader from "react-js-loader";
+import Navbar from './Navbar';
 
 export default function Home() {
   const [weather, setWeather] = useState('');
@@ -158,7 +159,9 @@ export default function Home() {
 
   return (
     //On clicking the button of GetWeather the api gets called and fetched and data is displayed.
+
     <div className="app">
+    <Navbar />
       <div className="search">
         <form onSubmit={apiCall} className="flex flex-col md:flex-row items-center  md:items-center lg:pl-9">
           <select

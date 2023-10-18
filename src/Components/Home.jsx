@@ -16,7 +16,7 @@ export default function Home() {
   const [inputType, setInputType] = useState("city");
   const [loading, setLoading] = useState(false);
 
-  const apiKey = 'Your API here'; //api removed for security reasons(find api key info from readme.md ) 
+  const apiKey = process.env.REACT_APP_API_KEY; //api removed for security reasons(find api key info from readme.md ) 
 
   const handleInputTypeChange = (e) => {
     setInputType(e.target.value);

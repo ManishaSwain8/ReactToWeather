@@ -1,32 +1,78 @@
-
-
-import React, { useState, useEffect } from 'react';
-import '../index.css';
-import axios from 'axios';
-import WeatherDetails from './WeatherDetails';
-import ForecastCard from './ForecastCard';
+import React, { useState, useEffect } from "react";
+import "../index.css";
+import axios from "axios";
+import WeatherDetails from "./WeatherDetails";
+import ForecastCard from "./ForecastCard";
 import toast from "react-hot-toast";
 import Loader from "react-js-loader";
 
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition";
+
+import micOn from "../assets/micOn.png";
+import micOff from "../assets/micOff.png";
+
+const TextSearch = ({ setCity }) => {
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    browserSupportsSpeechRecognition,
+  } = useSpeechRecognition();
+
+  useEffect(() => {
+    setCity(transcript);
+  }, [transcript]);
+
+  return (
+    <div className="mic-container h-[50px] w-[50px]">
+      {!browserSupportsSpeechRecognition ? (
+        <img alt="Mic Off" src={micOff} className="p-2" />
+      ) : listening ? (
+        <img
+          alt="Mic On"
+          src={micOn}
+          className="p-2"
+          onClick={() => {
+            SpeechRecognition.stopListening();
+          }}
+        />
+      ) : (
+        <img
+          alt="Mic Off"
+          src={micOff}
+          className="p-2"
+          onClick={() => {
+            SpeechRecognition.startListening();
+            resetTranscript();
+          }}
+        />
+      )}
+    </div>
+  );
+};
+
 export default function Home() {
-  const [weather, setWeather] = useState('');
+  const [weather, setWeather] = useState("");
   const [forecast, setForecast] = useState([]);
-  const [units, setUnits] = useState('metric');
+  const [units, setUnits] = useState("metric");
   const [showForecast, setShowForecast] = useState(false);
   const [inputType, setInputType] = useState("city");
   const [loading, setLoading] = useState(false);
+  const [city, setCity] = useState("");
 
-  const apiKey = 'Your API here'; //api removed for security reasons(find api key info from readme.md ) 
+  const apiKey = "Your API here"; //api removed for security reasons(find api key info from readme.md )
 
   const handleInputTypeChange = (e) => {
     setInputType(e.target.value);
   };
 
   const renderTemperature = (value) => {
-    if (units === 'metric') {
+    if (units === "metric") {
       return `${value}°C`;
     }
-    if (units === 'imperial') {
+    if (units === "imperial") {
       return `${value}°F`;
     }
     return `${value}K`;
@@ -55,7 +101,6 @@ export default function Home() {
         condition: res.data.weather[0].main,
       };
     } catch (error) {
-
       toast.error("Error while fetching data from API");
       console.error("Error occurred while fetching API data.");
       throw error;
@@ -83,7 +128,7 @@ export default function Home() {
       return forecastData;
     } catch (error) {
       toast.error("Error while fetching data from API");
-      console.error('Error occurred while fetching forecast data.');
+      console.error("Error occurred while fetching forecast data.");
       throw error;
     }
   };
@@ -132,10 +177,8 @@ export default function Home() {
     if (weather && weather.city) {
       try {
         const [newWeatherData, forecastData] = await Promise.all([
-          fetchWeatherData(weather.city, null,
-            null, selectedUnit),
-          fetchForecastData(weather.city, null,
-            null, selectedUnit),
+          fetchWeatherData(weather.city, null, null, selectedUnit),
+          fetchForecastData(weather.city, null, null, selectedUnit),
         ]);
         setWeather(newWeatherData);
         setForecast(forecastData);
@@ -145,7 +188,6 @@ export default function Home() {
       }
     }
   };
-
 
   // Add useEffect to update weather data when the unit changes
   // useEffect(() => {
@@ -160,7 +202,10 @@ export default function Home() {
     //On clicking the button of GetWeather the api gets called and fetched and data is displayed.
     <div className="app">
       <div className="search">
-        <form onSubmit={apiCall} className="flex flex-col md:flex-row items-center  md:items-center lg:pl-9">
+        <form
+          onSubmit={apiCall}
+          className="flex flex-col md:flex-row items-center  md:items-center lg:pl-9"
+        >
           <select
             onChange={handleInputTypeChange}
             className="dropdown-menu mx-auto sm:mx-0 mt-4"
@@ -171,11 +216,31 @@ export default function Home() {
           </select>
 
           {inputType === "city" ? (
-            <input type="text" placeholder="Enter your city" name="loc" className='ml-4 lg:w-1/2 md:w-1/2 w-max' />
+            <div className="flex flex-col md:flex-row items-center gap-4 justify-between ml-4 w-full flex-1">
+              <input
+                type="text"
+                placeholder="Enter your city"
+                name="loc"
+                className="border-none outline-none flex-1"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              />
+              <TextSearch setCity={setCity} />
+            </div>
           ) : (
             <>
-              <input type="text" placeholder="Enter latitude" name="lat" className='m-2 lg:w-1/4 w-max' />
-              <input type="text" placeholder="Enter longitude" name="lon" className='m-2 lg:w-1/4 w-max' />
+              <input
+                type="text"
+                placeholder="Enter latitude"
+                name="lat"
+                className="m-2 lg:w-1/4 w-max"
+              />
+              <input
+                type="text"
+                placeholder="Enter longitude"
+                name="lon"
+                className="m-2 lg:w-1/4 w-max"
+              />
               <br />
             </>
           )}
@@ -187,14 +252,18 @@ export default function Home() {
             className="m-3 px-11 py-2.5 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold ml-4"
             onClick={toggleForecast}
           >
-            {showForecast ? 'Hide Forecast' : 'Show Forecast'}
+            {showForecast ? "Hide Forecast" : "Show Forecast"}
           </button>
         </form>
         {loading ? ( // Conditionally render the loader while loading is true
           <div className="loader-container">
-            <Loader type="bubble-top" bgColor={"#6709AB"} title={""} size={80} />
+            <Loader
+              type="bubble-top"
+              bgColor={"#6709AB"}
+              title={""}
+              size={80}
+            />
           </div>
-
         ) : (
           <>
             {weather && (
@@ -207,8 +276,8 @@ export default function Home() {
                 />
               </div>
             )}
-          </>)
-        }
+          </>
+        )}
 
         {/* Render the forecast if showForecast is true */}
         {showForecast && (

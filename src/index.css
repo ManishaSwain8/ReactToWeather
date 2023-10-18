@@ -9,6 +9,7 @@
   background-color: rgba(0, 0, 0, 0, 4);
   color: aliceblue;
 }
+
 .app:before {
   content: "";
   /* background: url("./assets/ubg1.jpg") no-repeat center center/cover; */
@@ -22,7 +23,10 @@
   z-index: -1;
 }
 
-html, body, .root, .search{
+html,
+body,
+.root,
+.search {
   background-color: black;
   height: 100%;
   width: 100%;
@@ -53,13 +57,16 @@ html, body, .root, .search{
   border: 1px solid rgba(255, 255, 255, 0.18);
   margin-top: 2rem;
 }
+
 .app.top {
   width: 100%;
   margin: 1rem auto;
 }
+
 .app .description {
   position: relative;
 }
+
 .app .bottom {
   display: flex;
   justify-content: space-evenly;
@@ -70,13 +77,15 @@ html, body, .root, .search{
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.2);
 }
+
 .app .search {
   text-align: center;
   padding: 4rem;
-  align-items: flex-start; 
+  align-items: flex-start;
   height: 150vh;
-  width:  auto;
+  width: auto;
 }
+
 .app input {
   padding: 0.7rem 1.5rem;
   font-size: 1.2rem;
@@ -101,25 +110,25 @@ html, body, .root, .search{
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-option{
+option {
   background-color: black;
 }
 
 
-::-webkit-scrollbar { 
+::-webkit-scrollbar {
   width: 1.25rem;
-} 
+}
 
 /* Track */
-::-webkit-scrollbar-track { 
+::-webkit-scrollbar-track {
   background: #000000;
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb { 
-  background: linear-gradient(to bottom,#000000,#6b21a8);
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #000000, #6b21a8);
   border: 5px solid transparent;
-  border-radius: 12px; 
+  border-radius: 12px;
   background-clip: content-box;
 }
 
@@ -129,11 +138,13 @@ option{
     flex-direction: column;
   }
 }
+
 @media (min-width: 1280px) {
   .container {
     max-width: 700px !important;
   }
 }
+
 @media (min-width: 1024px) {
   .container {
     max-width: 700px !important;
@@ -144,16 +155,16 @@ option{
 .forecast-row {
   display: flex;
   margin-top: 20px;
-  flex-wrap: nowrap; 
-  overflow-x: auto; 
-  justify-content: space-between; 
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: space-between;
 }
 
 .forecast-card {
-  width: 200px; 
+  width: 200px;
   padding: 1rem;
-  margin-right: 1rem; 
-  color: #fff; 
+  margin-right: 1rem;
+  color: #fff;
   background-color: black;
   border-radius: 8px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -164,12 +175,12 @@ option{
 
 @media (max-width: 768px) {
   .forecast-row {
-    flex-wrap: wrap; 
-    justify-content: center; 
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .forecast-card {
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
   }
 }
 
@@ -188,7 +199,14 @@ option{
   }
 }
 
-.weather-attribute{
+.weather-attribute {
   text-align: center;
   align-items: center;
+}
+
+
+.mic-container {
+  background: linear-gradient(to right, #401366, #6b21a8);
+  border-radius: 100%;
+  background-clip: content-box;
 }

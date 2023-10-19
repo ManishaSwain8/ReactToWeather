@@ -5,6 +5,7 @@ import WeatherDetails from "./WeatherDetails";
 import ForecastCard from "./ForecastCard";
 import toast from "react-hot-toast";
 import Loader from "react-js-loader";
+import Maps from "./Maps";
 
 import SpeechRecognition, {
   useSpeechRecognition,
@@ -61,12 +62,17 @@ export default function Home() {
   const [inputType, setInputType] = useState("city");
   const [loading, setLoading] = useState(false);
   const [city, setCity] = useState("");
+  const [showMap,setShowMap] = useState(false);
 
   const apiKey = process.env.REACT_APP_API_KEY; //api removed for security reasons(find api key info from readme.md ) 
 
 
   const handleInputTypeChange = (e) => {
     setInputType(e.target.value);
+    if(e.target.value === "city" && showMap){
+      setShowMap(false);
+
+    }
   };
 
   const renderTemperature = (value) => {
@@ -198,14 +204,16 @@ export default function Home() {
   const handleUnitChange = (selectedUnit) => {
     updateWeatherData(selectedUnit);
   };
-
+  const handleMapChange = () =>{
+    setShowMap(!showMap);
+  }
   return (
     //On clicking the button of GetWeather the api gets called and fetched and data is displayed.
     <div className="app">
       <div className="search">
         <form
           onSubmit={apiCall}
-          className="flex flex-col md:flex-row items-center  md:items-center lg:pl-9"
+          className="flex flex-col md:flex-row items-center md:items-center lg:pl-9"
         >
           <select
             onChange={handleInputTypeChange}
@@ -242,9 +250,11 @@ export default function Home() {
                 name="lon"
                 className="m-2 lg:w-1/4 w-max"
               />
+              <button type="button"  className="m-4 px-12 py-2.5 md:py-1.8 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold" onClick={handleMapChange}> {showMap ? "Hide Map" : "Show Map"} </button>
               <br />
             </>
           )}
+
           <button className="m-4 px-12 py-2.5 md:py-1.8 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold">
             Get Weather
           </button>
@@ -256,6 +266,11 @@ export default function Home() {
             {showForecast ? "Hide Forecast" : "Show Forecast"}
           </button>
         </form>
+        <div>
+        {showMap && <>
+        <Maps></Maps>
+        </>}
+        </div>
         {loading ? ( // Conditionally render the loader while loading is true
           <div className="loader-container">
             <Loader

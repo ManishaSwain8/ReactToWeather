@@ -10,6 +10,7 @@
   color: aliceblue;
 }
 
+
 .app:before {
   content: "";
   /* background: url("./assets/ubg1.jpg") no-repeat center center/cover; */
@@ -83,7 +84,7 @@ body,
   padding: 4rem;
   align-items: flex-start;
   height: 150vh;
-  width: auto;
+  width: 100%;
 }
 
 .app input {
@@ -131,6 +132,7 @@ option {
   border-radius: 12px;
   background-clip: content-box;
 }
+
 
 @media (max-width: 600px) {
   .bottom {

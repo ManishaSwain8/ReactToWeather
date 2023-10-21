@@ -903,7 +903,7 @@ body,
   padding: 4rem;
   align-items: flex-start;
   height: 150vh;
-  width: auto;
+  width: 100%;
 }
 
 .app input {

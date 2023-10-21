@@ -10,6 +10,11 @@
   color: aliceblue;
 }
 
+.buttons{
+  min-width: min-content;
+  max-width: max-content;
+;
+}
 .app:before {
   content: "";
   /* background: url("./assets/ubg1.jpg") no-repeat center center/cover; */
@@ -79,11 +84,10 @@ body,
 }
 
 .app .search {
+  width: 100%;
   text-align: center;
   padding: 4rem;
-  align-items: flex-start;
   height: 150vh;
-  width: auto;
 }
 
 .app input {
@@ -131,6 +135,48 @@ option {
   border-radius: 12px;
   background-clip: content-box;
 }
+
+
+@media (max-width: 600px) {
+  .bottom {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 700px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 700px !important;
+  }
+}
+
+/* Daily forcast cards */
+.forecast-row {
+  display: flex;
+  margin-top: 20px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: space-between;
+}
+
+.forecast-card {
+  width: 200px;
+  padding: 1rem;
+  margin-right: 1rem;
+  color: #fff;
+  background-color: black;
+  border-radius: 8px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
 
 @media (max-width: 600px) {
   .bottom {
@@ -197,6 +243,14 @@ option {
     width: 100%;
     align-items: center;
   }
+}
+
+@media(max-width: 1170px){
+  .buttons{
+display: flex;
+flex-direction: column;
+  }
+  
 }
 
 .weather-attribute {

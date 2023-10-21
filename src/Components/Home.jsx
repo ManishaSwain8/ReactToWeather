@@ -62,14 +62,16 @@ export default function Home() {
   const [inputType, setInputType] = useState("city");
   const [loading, setLoading] = useState(false);
   const [city, setCity] = useState("");
-  const [showMap, setShowMap] = useState(false);
+  const [showMap,setShowMap] = useState(false);
 
-  const apiKey = process.env.REACT_APP_API_KEY; //api removed for security reasons(find api key info from readme.md )
+  const apiKey = process.env.REACT_APP_API_KEY; //api removed for security reasons(find api key info from readme.md ) 
+
 
   const handleInputTypeChange = (e) => {
     setInputType(e.target.value);
-    if (e.target.value === "city" && showMap) {
+    if(e.target.value === "city" && showMap){
       setShowMap(false);
+
     }
   };
 
@@ -202,9 +204,9 @@ export default function Home() {
   const handleUnitChange = (selectedUnit) => {
     updateWeatherData(selectedUnit);
   };
-  const handleMapChange = () => {
+  const handleMapChange = () =>{
     setShowMap(!showMap);
-  };
+  }
   return (
     //On clicking the button of GetWeather the api gets called and fetched and data is displayed.
     <div className="app">
@@ -223,7 +225,7 @@ export default function Home() {
           </select>
 
           {inputType === "city" ? (
-            <div className="flex flex-col md:flex-row items-center gap-4 justify-between w-full flex-1">
+            <div className="city-input flex flex-col md:flex-row items-center gap-4 justify-between w-full lg:ml-4 flex-1">
               <input
                 type="text"
                 placeholder="Enter your city"
@@ -248,36 +250,27 @@ export default function Home() {
                 name="lon"
                 className="m-2 lg:w-1/4 w-max"
               />
-              <button
-                type="button"
-                className="m-4 px-12 py-2.5 md:py-1.8 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold"
-                onClick={handleMapChange}
-              >
-                {" "}
-                {showMap ? "Hide Map" : "Show Map"}{" "}
-              </button>
+              <button type="button"  className="m-4 px-12 py-2.5 md:py-1.8 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold" onClick={handleMapChange}> {showMap ? "Hide Map" : "Show Map"} </button>
               <br />
             </>
           )}
-          <div className="buttons">
-            <button className="m-4 px-12 py-2.5 md:py-1.8 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold">
-              Get Weather
-            </button>
-            {/* Toggle button for forecast */}
-            <button
-              className="m-3 px-11 py-2.5 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold ml-4"
-              onClick={toggleForecast}
-            >
-              {showForecast ? "Hide Forecast" : "Show Forecast"}
-            </button>
+<div>
+          <button className="m-4 px-12 py-2.5 md:py-1.8 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold">
+            Get Weather
+          </button>
+          {/* Toggle button for forecast */}
+          <button
+            className="m-3 px-11 py-2.5 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold ml-4"
+            onClick={toggleForecast}
+          >
+            {showForecast ? "Hide Forecast" : "Show Forecast"}
+          </button>
           </div>
         </form>
         <div>
-          {showMap && (
-            <>
-              <Maps></Maps>
-            </>
-          )}
+        {showMap && <>
+        <Maps></Maps>
+        </>}
         </div>
         {loading ? ( // Conditionally render the loader while loading is true
           <div className="loader-container">

@@ -225,7 +225,7 @@ export default function Home() {
           </select>
 
           {inputType === "city" ? (
-            <div className="flex flex-col md:flex-row items-center gap-4 justify-between ml-4 w-full flex-1">
+            <div className="city-input flex flex-col md:flex-row items-center gap-4 justify-between w-full lg:ml-4 flex-1">
               <input
                 type="text"
                 placeholder="Enter your city"
@@ -254,7 +254,7 @@ export default function Home() {
               <br />
             </>
           )}
-
+<div>
           <button className="m-4 px-12 py-2.5 md:py-1.8 mt-4 transition-all ease-in duration-75 bg-gradient-to-r from-purple-950 from-20% via-purple-900 via-60% to-purple-800 to-80% rounded-full hover:scale-105 font-bold">
             Get Weather
           </button>
@@ -265,6 +265,7 @@ export default function Home() {
           >
             {showForecast ? "Hide Forecast" : "Show Forecast"}
           </button>
+          </div>
         </form>
         <div>
         {showMap && <>

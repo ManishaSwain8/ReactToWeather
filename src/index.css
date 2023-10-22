@@ -182,6 +182,10 @@ option {
   .forecast-card {
     margin-bottom: 1rem;
   }
+
+  .city-input{
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 480px) {

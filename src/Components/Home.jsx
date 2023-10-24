@@ -5,6 +5,7 @@ import WeatherDetails from "./WeatherDetails";
 import ForecastCard from "./ForecastCard";
 import toast from "react-hot-toast";
 import Loader from "react-js-loader";
+import Footer from "./Footer";
 
 import Navbar from './Navbar';
 
@@ -319,6 +320,7 @@ export default function Home() {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   );
 }

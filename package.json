@@ -17,6 +17,7 @@
     "react-js-loader": "^0.1.2",
     "react-leaflet": "^4.2.1",
     "react-scripts": "5.0.1",
+    "react-router-dom": "^6.17.0",
     "react-speech-recognition": "^3.10.0",
     "react-spinners": "^0.13.8",
     "web-vitals": "^2.1.4"

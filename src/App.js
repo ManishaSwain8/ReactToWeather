@@ -6,6 +6,8 @@ import Home from "./Components/Home";
 import { Toaster } from "react-hot-toast";
 import { useState, useEffect } from "react";
 import PreLoader from "./Components/PreLoader";
+import {BrowserRouter ,Routes , Route, useNavigate} from "react-router-dom";
+import Temperature from "./Components/Temperature";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,9 +23,14 @@ function App() {
       ) : (
         <MantineProvider>
         <Toaster />
-        <Home />
+        <BrowserRouter>
+        <Routes>
+        <Route path='/'  element={<Home/>} />
+        <Route path='/Temperature' element={<Temperature/>} />
+      </Routes>
+      </BrowserRouter>
       </MantineProvider>
-      )}
+        )}
       
     </div>
   );

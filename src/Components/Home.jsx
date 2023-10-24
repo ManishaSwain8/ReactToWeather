@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import Loader from "react-js-loader";
 
 import Navbar from './Navbar';
-
+import Temperature from './Temperature';
 import Maps from "./Maps";
 
 import SpeechRecognition, {

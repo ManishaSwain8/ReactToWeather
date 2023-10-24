@@ -6,7 +6,9 @@ import ForecastCard from "./ForecastCard";
 import toast from "react-hot-toast";
 import Loader from "react-js-loader";
 
+
 import Navbar from './Navbar';
+import Converter from './Converter';
 
 import Maps from "./Maps";
 
@@ -215,6 +217,7 @@ export default function Home() {
     //On clicking the button of GetWeather the api gets called and fetched and data is displayed.
 
     <div className="app">
+      
     <Navbar />
       <div className="search">
         <form

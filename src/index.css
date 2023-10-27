@@ -214,3 +214,8 @@ option {
   border-radius: 100%;
   background-clip: content-box;
 }
+.preloader-container{
+  display: flex;
+  justify-content: center;
+  padding-top: 70px;
+}

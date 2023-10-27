@@ -4,7 +4,7 @@ const PreLoader = () => {
 
   return (
     <div className="preloader-container">
-      <ClimbingBoxLoader color="#3b0764" size={20} />
+      <ClimbingBoxLoader color="#3b0764" size={30} />
     </div>
   );
 }

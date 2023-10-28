@@ -6,6 +6,8 @@ import Home from "./Components/Home";
 import { Toaster } from "react-hot-toast";
 import { useState, useEffect } from "react";
 import PreLoader from "./Components/PreLoader";
+import {BrowserRouter ,Routes , Route, useNavigate} from "react-router-dom";
+import Converter from "./Components/Converter";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,7 +23,12 @@ function App() {
       ) : (
         <MantineProvider>
         <Toaster />
-        <Home />
+        <BrowserRouter>
+        <Routes>
+        <Route path='/'  element={<Home/>} />
+        <Route path='/converter' element={<Converter/>} />
+      </Routes>
+      </BrowserRouter>
       </MantineProvider>
       )}
       

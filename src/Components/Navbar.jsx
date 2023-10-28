@@ -1,5 +1,6 @@
 import React from "react";
 import { BsFillCloudSunFill } from "react-icons/bs";
+import {Link} from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -8,9 +9,10 @@ const Navbar = () => {
         <BsFillCloudSunFill size={30} className="cursor-pointer" />
         <div className="cursor-pointer">ReactToWeather</div>
       </div>
+      
       <div className="flex gap-4 ">
-        <p className="cursor-pointer hover:bg-slate-500 p-2 rounded-lg">Home</p>
-        <p  className="cursor-pointer hover:bg-slate-500 p-2 rounded-lg ">Converter</p>
+      <p className="cursor-pointer hover:bg-slate-500 p-2 rounded-lg"><Link to="/">Home</Link></p>
+        <p  className="cursor-pointer hover:bg-slate-500 p-2 rounded-lg "><Link to="/converter">Converter</Link></p>
         
       
       </div>

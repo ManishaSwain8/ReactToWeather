@@ -18,6 +18,7 @@ import SpeechRecognition, {
 
 import micOn from "../assets/micOn.png";
 import micOff from "../assets/micOff.png";
+import LocationLogger from "./LocationLogger";
 
 const TextSearch = ({ setCity }) => {
   const {
@@ -220,6 +221,7 @@ export default function Home() {
       
     <Navbar />
       <div className="search">
+        <LocationLogger/>
         <form
           onSubmit={apiCall}
           className="flex flex-col md:flex-row items-center md:items-center lg:pl-9"
